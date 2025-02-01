@@ -3,12 +3,19 @@ kind: HelmRelease
 metadata:
   name: podinfo
   namespace: podinfo
+annotations: 
+   kubernetes.io/ingress.class: nginx
+   kubernetes.io/tls-acme: "true"
 spec:
   chart:
     spec:
       version: ">=1.0.0-alpha"
   test:
     enable: false
+  tls: 
+   - hosts:
+      - podinfo.qavps.com
+     secretName: chart-example-tls
   values:
     ingress:
       hosts:
