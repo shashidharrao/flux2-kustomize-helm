@@ -14,7 +14,7 @@ spec:
       create: true
       issuerRef:
         kind: ClusterIssuer
-        name: self-signed
+        name: chart-example-tls
       dnsNames:
           - podinfo.qavps.com
     ingress:
