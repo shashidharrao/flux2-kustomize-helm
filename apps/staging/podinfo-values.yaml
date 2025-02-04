@@ -12,10 +12,6 @@ spec:
       version: ">=1.0.0-alpha"
   test:
     enable: false
-  tls: 
-   - hosts:
-      - podinfo.qavps.com
-     secretName: chart-example-tls
   values:
     ingress:
       hosts:
@@ -23,3 +19,4 @@ spec:
           paths:
             - path: /
               pathType: ImplementationSpecific
+      
