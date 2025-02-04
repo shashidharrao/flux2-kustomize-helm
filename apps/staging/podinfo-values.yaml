@@ -10,6 +10,13 @@ spec:
   test:
     enable: false
   values:
+    certificate:
+      create: true
+      issuerRef:
+        kind: ClusterIssuer
+        name: self-signed
+      dnsNames:
+          - podinfo.qavps.com
     ingress:
       enabled: true
       annotations: 
