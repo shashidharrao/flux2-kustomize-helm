@@ -1,0 +1,11 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: blue-team
+  namespace: simple-webapp-blue
+spec:
+  interval: 1m0s
+  ref:
+    branch: main
+  url: https://github.com/la-cc/simple-webapp-blue.git
