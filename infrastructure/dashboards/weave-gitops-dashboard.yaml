@@ -40,7 +40,7 @@ spec:
       passwordHash: $2a$10$dDqNsWVMUREdELUkfTjBFOzB6h1HPV6ocHmkzd1B9Pys7cbpo1eJC
       username: admin
     ingress:
-      ClassName: nginx
+      ingressClassName: nginx
       enabled: true
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-nginx
