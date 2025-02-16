@@ -1,0 +1,39 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: flux2-kustomize-helm
+  namespace: simple-webapp-blue
+spec:
+  interval: 1m0s
+  ref:
+    branch: main
+  url: https://github.com/shashidharrao/flux2-kustomize-helm
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: flux2-kustomize-helm
+  namespace: apps
+spec:
+  interval: 1m0s
+  path: ./
+  prune: false
+  serviceAccountName: flux2-kustomize-helm
+  sourceRef:
+    kind: GitRepository
+    name: flux2-kustomize-helm
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: flux2-kustomize-helm
+  namespace: simple-webapp-blue
+spec:
+  interval: 1m0s
+  path: ./
+  prune: false
+  serviceAccountName: flux2-kustomize-helm
+  sourceRef:
+    kind: GitRepository
+    name: flux2-kustomize-helm
