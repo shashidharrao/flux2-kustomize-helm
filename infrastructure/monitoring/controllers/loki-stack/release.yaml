@@ -76,9 +76,6 @@ spec:
       ruler:
         enable_api: true
     minio:
-      persistence:
-        enabled: true
-        storageClass: manual
       enabled: true
     lokiCanary:
       enabled: false
