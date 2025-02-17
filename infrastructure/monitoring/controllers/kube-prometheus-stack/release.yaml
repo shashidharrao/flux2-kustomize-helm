@@ -41,7 +41,7 @@ spec:
       defaultDashboardsEnabled: false
       adminPassword: flux
       ingress:
-        enabled: yes
+        enabled: true
         ingressClassName: nginx 
         annotations:
           cert-manager.io/cluster-issuer: letsencrypt-nginx
