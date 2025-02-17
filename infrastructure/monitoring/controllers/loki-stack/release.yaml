@@ -44,6 +44,9 @@ spec:
               version: 1
               isDefault: false
     loki:
+      persistence:
+         enabled: true
+         storageClass: manual 
       auth_enabled: false
       serviceMonitor:
         enabled: true
@@ -71,8 +74,6 @@ spec:
         enable_api: true
     minio:
       enabled: true
-      persistence:
-         storageClass: manual 
     lokiCanary:
       enabled: false
     deploymentMode: SingleBinary
