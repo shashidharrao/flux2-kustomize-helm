@@ -74,9 +74,6 @@ spec:
         enable_api: true
     minio:
       enabled: true
-      persistence:
-         enabled: true
-         storageClass: manual
     lokiCanary:
       enabled: false
     deploymentMode: SingleBinary
