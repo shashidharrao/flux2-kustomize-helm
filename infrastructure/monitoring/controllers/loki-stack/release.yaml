@@ -15,9 +15,6 @@ spec:
         name: grafana-charts
       interval: 60m
   values:
-    persistence:
-      enabled: true
-      storageClass: manual
     chunksCache:
       enabled: false
     resultsCache:
@@ -47,10 +44,10 @@ spec:
               version: 1
               isDefault: false
     loki:
-      auth_enabled: false
       persistence:
         enabled: true
         storageClass: manual
+      auth_enabled: false
       serviceMonitor:
         enabled: true
         labels:
@@ -77,11 +74,14 @@ spec:
         enable_api: true
     minio:
       enabled: true
+      persistence:
+         enabled: true
+         storageClass: manual
     lokiCanary:
       enabled: false
     deploymentMode: SingleBinary
     singleBinary:
-      replicas: 1
+      replicas: 1    
     # Zero out replica counts of other deployment modes
     backend:
       replicas: 0
