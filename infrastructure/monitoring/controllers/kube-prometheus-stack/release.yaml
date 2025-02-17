@@ -40,18 +40,3 @@ spec:
     grafana:
       defaultDashboardsEnabled: false
       adminPassword: flux
-      ingress:
-        enabled: true
-        ingressClassName: nginx 
-        annotations:
-          cert-manager.io/cluster-issuer: letsencrypt-nginx
-          kubernetes.io/ingress.class: nginx
-        hosts:
-          - host: "grafana.qavps.com"
-            paths:
-              - path: "/"
-                pathType: Prefix
-        tls: 
-           - secretName: chart-example-tls
-             hosts:
-              - grafana.qavps.com
