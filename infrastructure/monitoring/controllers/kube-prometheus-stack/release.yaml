@@ -49,9 +49,9 @@ spec:
         hosts:
           - host: "grafana.qavps.com"
             paths:
-                - path: "/"
-                  pathType: Prefix
+              - path: "/"
+                pathType: Prefix
         tls: 
-          - secretName: chart-example-tls
-            hosts:
+           - secretName: chart-example-tls
+             hosts:
               - grafana.qavps.com
