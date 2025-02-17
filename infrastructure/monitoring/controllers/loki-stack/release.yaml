@@ -44,9 +44,6 @@ spec:
               version: 1
               isDefault: false
     loki:
-      persistence:
-        enabled: true
-        storageClass: manual
       auth_enabled: false
       serviceMonitor:
         enabled: true
