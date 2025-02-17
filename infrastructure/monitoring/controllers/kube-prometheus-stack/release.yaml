@@ -24,21 +24,6 @@ spec:
     valuesKey: kube-state-metrics-config.yaml
   # https://github.com/prometheus-community/helm-charts/blob/main/charts/kube-prometheus-stack/values.yaml
   values:
-    ingress:
-      enabled: yes
-      ingressClassName: nginx 
-      annotations:
-        cert-manager.io/cluster-issuer: letsencrypt-nginx
-        kubernetes.io/ingress.class: nginx
-      hosts:
-       - host: "prometheus.qavps.com"
-         paths:
-           - path: "/"
-             pathType: Prefix
-      tls: 
-         - secretName: chart-example-tls
-           hosts:
-            - prometheus.qavps.com
     alertmanager:
       enabled: false
     prometheus:
@@ -55,3 +40,18 @@ spec:
     grafana:
       defaultDashboardsEnabled: false
       adminPassword: flux
+      ingress:
+        enabled: yes
+        ingressClassName: nginx 
+        annotations:
+          cert-manager.io/cluster-issuer: letsencrypt-nginx
+          kubernetes.io/ingress.class: nginx
+        hosts:
+          - host: "grafana.qavps.com"
+            paths:
+                - path: "/"
+                  pathType: Prefix
+        tls: 
+          - secretName: chart-example-tls
+            hosts:
+              - grafana.qavps.com
