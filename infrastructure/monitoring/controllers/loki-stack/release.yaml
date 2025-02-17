@@ -73,12 +73,16 @@ spec:
       ruler:
         enable_api: true
     minio:
+      persistence:
+        storageClass: manual
       enabled: true
     lokiCanary:
       enabled: false
     deploymentMode: SingleBinary
     singleBinary:
       replicas: 1
+      persistence:
+         storageClass: manual
     # Zero out replica counts of other deployment modes
     backend:
       replicas: 0
