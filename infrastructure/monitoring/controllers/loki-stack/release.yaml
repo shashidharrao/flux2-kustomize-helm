@@ -16,7 +16,6 @@ spec:
       interval: 60m
   values:
     persistence:
-        enabled: true
         storageClass: manual
     chunksCache:
       enabled: false
