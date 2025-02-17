@@ -72,7 +72,6 @@ spec:
     minio:
       enabled: true
       persistence:
-         enabled: true
          storageClass: manual 
     lokiCanary:
       enabled: false
