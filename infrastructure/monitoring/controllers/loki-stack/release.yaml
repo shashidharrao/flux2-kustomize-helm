@@ -48,6 +48,9 @@ spec:
               isDefault: false
     loki:
       auth_enabled: false
+      persistence:
+        enabled: true
+        storageClass: manual
       serviceMonitor:
         enabled: true
         labels:
