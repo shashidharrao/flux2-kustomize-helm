@@ -6,7 +6,8 @@ metadata:
 spec:
   interval: 1m0s
   path: ./tenants/blue-team
-  prune: false
+  prune: true
+  wait: true
   serviceAccountName: blue-team
   sourceRef:
     kind: GitRepository
@@ -20,7 +21,8 @@ metadata:
 spec:
   interval: 1m0s
   path: ./tenants/green-team
-  prune: false
+  prune: true
+  wait: true
   serviceAccountName: green-team
   sourceRef:
     kind: GitRepository
