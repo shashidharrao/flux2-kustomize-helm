@@ -3,5 +3,4 @@ kind: Kustomization
 resources:
 - blue-team-git.yaml
 - blue-team-tenant.yaml
-- flux-kustomize.yaml
 namespace: simple-webapp-blue
