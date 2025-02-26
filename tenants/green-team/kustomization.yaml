@@ -4,5 +4,4 @@ resources:
 - flux-kustomize.yaml
 - green-team-git.yaml
 - green-team-tenant.yaml
-- sync.yaml
 namespace: simple-webapp-green

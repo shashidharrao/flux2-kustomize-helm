@@ -4,5 +4,4 @@ resources:
 - blue-team-git.yaml
 - blue-team-tenant.yaml
 - flux-kustomize.yaml
-- sync.yaml
 namespace: simple-webapp-blue
