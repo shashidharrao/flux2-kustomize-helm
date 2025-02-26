@@ -5,7 +5,7 @@ metadata:
   namespace: simple-webapp-blue
 spec:
   interval: 1m0s
-  path: ./tenants/blue-team
+  path: ./
   prune: true
   wait: true
   serviceAccountName: blue-team
@@ -20,7 +20,7 @@ metadata:
   namespace: simple-webapp-green
 spec:
   interval: 1m0s
-  path: ./tenants/green-team
+  path: ./
   prune: true
   wait: true
   serviceAccountName: green-team
