@@ -7,10 +7,10 @@ spec:
   interval: 1m0s
   path: ./tenants/blue-team
   prune: false
-  serviceAccountName: flux2-kustomize-helm
+  serviceAccountName: blue-team
   sourceRef:
     kind: GitRepository
-    name: flux2-kustomize-helm
+    name: blue-team
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
@@ -21,7 +21,7 @@ spec:
   interval: 1m0s
   path: ./tenants/green-team
   prune: false
-  serviceAccountName: flux2-kustomize-helm
+  serviceAccountName: green-team
   sourceRef:
     kind: GitRepository
-    name: flux2-kustomize-helm
+    name: green-team
