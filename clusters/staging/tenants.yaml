@@ -1,33 +1,79 @@
-apiVersion: kustomize.toolkit.fluxcd.io/v1
-kind: Kustomization
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
 metadata:
-  name: blue-team
+  name: flux2-kustomize-helm
   namespace: simple-webapp-blue
 spec:
-  interval: 10m0s
-  dependsOn:
-    - name: infra-configs
-  sourceRef:
-    kind: GitRepository
-    name: flux-system
-  path: ./tenants/blue-team
-  prune: true
-  wait: true
-  timeout: 5m0s
+  interval: 1m0s
+  ref:
+    branch: main
+  url: https://github.com/shashidharrao/flux2-kustomize-helm
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: green-team
-  namespace: simple-webapp-green
+  name: flux2-kustomize-helm
+  namespace: apps
 spec:
-  interval: 10m0s
-  dependsOn:
-    - name: infra-configs
+  interval: 1m0s
+  path: ./
+  prune: false
+  serviceAccountName: flux2-kustomize-helm
   sourceRef:
     kind: GitRepository
-    name: flux-system
-  path: ./tenants/green-team
-  prune: true
-  wait: true
-  timeout: 5m0s
+    name: flux2-kustomize-helm
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: flux2-kustomize-helm
+  namespace: simple-webapp-blue
+spec:
+  interval: 1m0s
+  path: ./
+  prune: false
+  serviceAccountName: flux2-kustomize-helm
+  sourceRef:
+    kind: GitRepository
+    name: flux2-kustomize-helm
+---
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: flux2-kustomize-helm
+  namespace: simple-webapp-green
+spec:
+  interval: 1m0s
+  ref:
+    branch: main
+  url: https://github.com/shashidharrao/flux2-kustomize-helm
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: flux2-kustomize-helm
+  namespace: apps
+spec:
+  interval: 1m0s
+  path: ./
+  prune: false
+  serviceAccountName: flux2-kustomize-helm
+  sourceRef:
+    kind: GitRepository
+    name: flux2-kustomize-helm
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: flux2-kustomize-helm
+  namespace: simple-webapp-green
+spec:
+  interval: 1m0s
+  path: ./
+  prune: false
+  serviceAccountName: flux2-kustomize-helm
+  sourceRef:
+    kind: GitRepository
+    name: flux2-kustomize-helm
