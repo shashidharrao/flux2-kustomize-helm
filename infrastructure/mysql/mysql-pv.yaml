@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+ name: mysql-pv-volume
+ labels:
+   type: local
+spec:
+ capacity:
+   storage: 2Gi
+ accessModes:
+   - ReadWriteOnce
+ hostPath:
+   path: "/mnt/data"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+ name: mysql-pv-claim
+spec:
+ accessModes:
+   - ReadWriteOnce
+ resources:
+   requests:
+     storage: 2Gi
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: mysql
+  labels:
+    toolkit.fluxcd.io/tenant: db-team
